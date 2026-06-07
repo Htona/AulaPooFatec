@@ -1,16 +1,22 @@
-package Lista1;
+package Lista2;
+
+import java.util.Scanner;
 
 public class Exercicio10 {
 
 	public static void main(String[] args) {
-	//Crie variáveis: anoNascimento, anoAtual. Calcule a idade.
+		// Se valor >= 100, aplicar 10% de desconto.
 		
-		int anoNascimento = 2007;
-		int anoAtual = 2026;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Valor da compra: ");
+		double valor = sc.nextDouble();
+				
+				if (valor >= 100) {
+					valor = valor - (valor * 0.10);
+				}
 		
-		int idade = anoAtual - anoNascimento;
-		
-		System.out.println("Idade: " + idade);
+		System.out.println("Valor fina: " + valor);
+		sc.close();
 	}
 
 }

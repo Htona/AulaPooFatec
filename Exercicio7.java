@@ -1,18 +1,28 @@
-package Lista1;
+package Lista2;
+
+import java.util.Scanner;
 
 public class Exercicio7 {
 
 	public static void main(String[] args) {
-		// Declare uma variável inteira. 
-		// Mostre: Número 10 - Antecessor 9 -  Sucessor 11
+		// Aprovado >= 6, Recuperação entre 4 e 6, Reprovado < 4
 		
-		int numero = 10;
-		int antecessor = numero -1;
-		int sucessor = numero +1;
+		Scanner sc = new Scanner (System.in);
 		
-		System.out.println(" Número: " +  numero);
-		System.out.println(" Antecessor: " +  antecessor);
-		System.out.println(" Sucessor: " +  sucessor);
+		System.out.println("Nota 1: ");
+		double n1 = sc.nextDouble();
+		System.out.println("Nota 2: ");
+		double n2 = sc.nextDouble();
+		
+		double media = (n1 + n2)/ 2;
+		
+		if (media >= 6) {
+			System.out.println("Aprovado");
+		} else if (media >= 4) {
+			System.out.println("Recuperação");
+		} else {
+			System.out.println("Reprovado");
+		}
+		sc.close();
+		}	
 	}
-
-}

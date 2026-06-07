@@ -1,20 +1,24 @@
-package Lista1;
+package Lista2;
+
+import java.util.Scanner;
 
 public class Exercicio8 {
 
 	public static void main(String[] args) {
-		// Declare uma variável em metros.
-		// Mostre o valor em: centímetros e milímetros
+		//Leia três números e informe qual é o maior.
 		
-	double metros = 2.5;
-	double centimetros = metros * 100;
-	double milimetros = metros * 1000;
-	
-	System.out.println( metros + " metros equivalem a:");
-	System.out.println(centimetros + " cm");
-	System.out.println(milimetros + " mm");
+		Scanner sc = new Scanner(System.in);
+		int n1 = sc.nextInt();
+		int n2 = sc.nextInt();
+		int n3 = sc.nextInt();
 		
-
+		if (n1 >= n2 && n1 >= n3) {
+			System.out.println("Maior: " + n1);
+		} else if (n2 >= n1 && n2 >= n3) {
+			System.out.println("Maior: " + n2);
+		} else {
+			System.out.println( "Maior: " + n3);
+		}
+		sc.close();
+		}
 	}
-
-}

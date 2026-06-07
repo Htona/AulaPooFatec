@@ -1,17 +1,23 @@
-package Lista1;
+package Lista2;
+
+import java.util.Scanner;
 
 public class Exercicio5 {
 
 	public static void main(String[] args) {
-		// Crie uma variável para temperatura em Celsius.
-		// Converta para Fahrenheit usando: F=(C*9/5)+32 
-        
+		// Leia um número e verifique se ele está no intervalo entre 10 e 50 (inclusive).
 		
-	double celsius = 30.0;
-	double fahrenheit = (celsius * 9 / 5) + 32;
-	
-	System.out.println( "Temperatura em Fahrenheit: " +  fahrenheit );
-	
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Digite um número ");
+		int numero = sc.nextInt();
+		
+		if (numero >= 10 && numero <= 50) {
+			System.out.println("Dentro do intervalo");
+		} else{
+			System.out.println("Fora do intervalo");	
+		}
+		sc.close();
 	}
 
 }

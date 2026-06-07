@@ -1,22 +1,23 @@
-package Lista1;
+package Lista2;
+
+import java.util.Scanner;
 
 public class Exercicio3 {
 
 	public static void main(String[] args) {
-		// Declare três variáveis:
-		// double n1
-		// double n2
-		// double n3
-		// Calcule a média e imprima o resultado.
+		// Leia a idade de uma pessoa e informe se ela é "Maior de idade" (18 ou mais) 
+		// ou "Menor de idade".
 		
-		double n1 = 7.5;
-		double n2 = 8.0;
-		double n3 = 6.5;
-			
-		double media = (n1 + n2 + n3) / 3;
+		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Média: " + media);
-
+		System.out.println( "Digite a idade: ");
+		int idade = sc.nextInt();
+		
+		if (idade >= 18) {
+			System.out.println("Maior de idade");
+		} else {
+			System.out.println("Menor de idade");
+			sc.close();
+		}
 	}
-
 }
