@@ -1,27 +1,46 @@
-package Lista2;
+package Lista4;
 
 import java.util.Scanner;
 
 public class Exercicio19 {
+	
+	    public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+	        int[][] matriz = new int[3][3];
 
-	public static void main(String[] args) {
-		// Leia a temperatura
-		// < 15 → Frio
-		// 15 a 25 → Agradável
-		// > 25 → Quente
+	        System.out.println("Digite os elementos da matriz 3x3:");
+	        for (int i = 0; i < 3; i++) {
+	            for (int j = 0; j < 3; j++) {
+	                System.out.print("Posição [" + i + "][" + j + "]: ");
+	                matriz[i][j] = scanner.nextInt();
+	            }
+	        }
 
-		 Scanner sc = new Scanner(System.in);
+	        boolean ehIdentidade = true;
 
-	        System.out.print("Temperatura: ");
-	        double temp = sc.nextDouble();
+	        for (int i = 0; i < 3; i++) {
+	            for (int j = 0; j < 3; j++) {
+	                if (i == j) {
+	                    // Elemento da diagonal principal deve ser 1
+	                    if (matriz[i][j] != 1) {
+	                        ehIdentidade = false;
+	                        break;
+	                    }
+	                } else {
+	                    // Qualquer outra posição deve ser 0
+	                    if (matriz[i][j] != 0) {
+	                        ehIdentidade = false;
+	                        break;
+	                    }
+	                }
+	            }
+	        }
 
-	        if (temp < 15) {
-	            System.out.println("Frio");
-	        } else if (temp <= 25) {
-	            System.out.println("Agradável");
+	        if (ehIdentidade) {
+	            System.out.println("\nA matriz É uma matriz identidade.");
 	        } else {
-	            System.out.println("Quente");
-	       sc.close();     
-	       }
+	            System.out.println("\nA matriz NÃO é uma matriz identidade.");
+	        }
+	        scanner.close();
 	    }
 	}

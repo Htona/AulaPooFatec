@@ -1,31 +1,41 @@
-package Lista2;
+package Lista4;
 
 import java.util.Scanner;
 
 public class Exercicio20 {
-
 	public static void main(String[] args) {
-		// Leia o salário
-		// ≤ 2000 → Isento
-		// 2001 a 5000 → 10%
-		// > 5000 → 20%
-		
-		  Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        int[][] matriz = new int[3][3];
 
-	        System.out.print("Salário: ");
-	        double salario = sc.nextDouble();
+        System.out.println("Digite os elementos da matriz 3x3:");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print("Posição [" + i + "][" + j + "]: ");
+                matriz[i][j] = scanner.nextInt();
+            }
+        }
 
-	        double imposto;
+        System.out.println();
 
-	        if (salario <= 2000) {
-	            imposto = 0;
-	        } else if (salario <= 5000) {
-	            imposto = salario * 0.10;
-	        } else {
-	            imposto = salario * 0.20;
-	        }
+        // Calculando e mostrando a soma de cada linha
+        for (int i = 0; i < 3; i++) {
+            int somaLinha = 0;
+            for (int j = 0; j < 3; j++) {
+                somaLinha += matriz[i][j];
+            }
+            System.out.println("Soma da Linha " + i + ": " + somaLinha);
+        }
 
-	        System.out.println("Imposto: " + imposto);
-	        sc.close();
-	    }
-	}
+        System.out.println();
+
+        // Calculando e mostrando a soma de cada coluna
+        for (int j = 0; j < 3; j++) {
+            int somaColuna = 0;
+            for (int i = 0; i < 3; i++) {
+                somaColuna += matriz[i][j]; // Repare que invertemos i e j aqui para travar a coluna
+            }
+            System.out.println("Soma da Coluna " + j + ": " + somaColuna);
+        }
+        scanner.close();
+    }
+}

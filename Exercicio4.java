@@ -1,14 +1,23 @@
-package Lista3;
+package Lista4;
+
+import java.util.Scanner;
 
 public class Exercicio4 {
-
+	
 	public static void main(String[] args) {
-		
-		int soma = 0;
-	    for (int i = 1; i <= 100; i++) {
-	        soma += i;
-	    }
+        Scanner scanner = new Scanner(System.in);
+        double[] numeros = new double[6];
+        double soma = 0;
 
-	    System.out.println("Soma = " + soma);
-	}
-	}
+        System.out.println("Digite 6 números:");
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.print("Número " + (i + 1) + ": ");
+            numeros[i] = scanner.nextDouble();
+            soma += numeros[i];
+        }
+
+        double media = soma / numeros.length;
+        System.out.printf("\nA média dos valores é: %.2f\n", media);
+        scanner.close();
+    }
+}

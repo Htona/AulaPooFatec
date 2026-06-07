@@ -1,29 +1,26 @@
-package Lista2;
+package Lista4;
 
 import java.util.Scanner;
 
 public class Exercicio15 {
-
 	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);
-		double peso = sc.nextDouble();
-		
-		System.out.println("Altura: ");
-		double altura = sc.nextDouble();
-		
-		double imc = peso / (altura * altura);
-		
-		if(imc < 18.5) {
-			System.out.println("Abaixo do peso");
-		} else if (imc < 25) {
-			System.out.println("Normal");
-		} else if (imc < 30) {
-			System.out.println("Sobrepeso");
-		} else {
-			System.out.println("Obesidade");	
-			sc.close();
-		
-	   }
-	}
+        Scanner scanner = new Scanner(System.in);
+        int[][] matriz = new int[3][3];
+        int contPares = 0;
+
+        System.out.println("Digite os elementos da matriz 3x3:");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print("Posição [" + i + "][" + j + "]: ");
+                matriz[i][j] = scanner.nextInt();
+                
+                if (matriz[i][j] % 2 == 0) {
+                    contPares++;
+                }
+            }
+        }
+
+        System.out.println("\nA matriz possui " + contPares + " números pares.");
+        scanner.close();
+    }
 }

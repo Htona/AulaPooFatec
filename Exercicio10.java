@@ -1,27 +1,37 @@
-package Lista3;
+package Lista4;
 
 import java.util.Scanner;
 
 public class Exercicio10 {
+	public static void main(String[] args) {
+		
+        Scanner scanner = new Scanner(System.in);
+        int[] numeros = new int[10];
 
-	public static void main(String[] args){
+        System.out.println("Digite 10 números:");
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.print("Número " + (i + 1) + ": ");
+            numeros[i] = scanner.nextInt();
+        }
 
-        Scanner sc = new Scanner(System.in);
-
-        int numero;
-        int soma = 0;
-
-        do {
-
-            System.out.print("Digite um número (0 para sair): ");
-            numero = sc.nextInt();
-
-            soma += numero;
-
-        } while (numero != 0);
-
-        System.out.println("Soma total = " + soma);
-
-        sc.close();
+        System.out.println("\nValores únicos informados:");
+        for (int i = 0; i < numeros.length; i++) {
+            boolean duplicado = false;
+            
+            // Verifica se o número já apareceu antes na lista
+            for (int j = 0; j < i; j++) {
+                if (numeros[i] == numeros[j]) {
+                    duplicado = true;
+                    break;
+                }
+            }
+            
+            // Se não apareceu antes, pode exibir
+            if (!duplicado) {
+                System.out.print(numeros[i] + " ");
+            }
+        }
+        
+        scanner.close();
     }
-	}
+}

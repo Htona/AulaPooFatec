@@ -1,29 +1,31 @@
-package Lista3;
+package Lista4;
 
 import java.util.Scanner;
 
 public class Exercicio8 {
-	public static void main(String[] args) { 
-		
-        Scanner sc = new Scanner(System.in);
 
-        System.out.print("Quantos números deseja informar? ");
-        int quantidade = sc.nextInt();
+	public class Exercicio08 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] numeros = new int[10];
 
-        double soma = 0;
-
-        for (int i = 1; i <= quantidade; i++) {
-
-            System.out.print("Digite um número: ");
-            double numero = sc.nextDouble();
-
-            soma += numero;
+        System.out.println("Digite 10 números:");
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.print("Número " + (i + 1) + ": ");
+            numeros[i] = scanner.nextInt();
         }
 
-        double media = soma / quantidade;
+        System.out.print("\nDigite o valor X para contar as ocorrências: ");
+        int x = scanner.nextInt();
+        
+        int contagem = 0;
+        for (int i = 0; i < numeros.length; i++) {
+            if (numeros[i] == x) {
+                contagem++;
+            }
+        }
 
-        System.out.println("Média = " + media);
-
-        sc.close();
+        System.out.println("O valor " + x + " aparece " + contagem + " vezes no array.");
+        scanner.close();
     }
-}
+}}

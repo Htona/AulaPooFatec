@@ -1,23 +1,26 @@
-package Lista3;
+package Lista4;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Exercicio9 {
 	public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] numeros = new int[10];
 
-		 Scanner sc = new Scanner(System.in);
+        System.out.println("Digite 10 números:");
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.print("Número " + (i + 1) + ": ");
+            numeros[i] = scanner.nextInt();
+        }
 
-	        System.out.print("Digite um número: ");
-	        int numero = sc.nextInt();
+        Arrays.sort(numeros);
 
-	        long fatorial = 1;
-
-	        for (int i = numero; i >= 1; i--) {
-	            fatorial *= i;
-	        }
-
-	        System.out.println(numero + "! = " + fatorial);
-
-	        sc.close();
-	    }
-	}
+        System.out.println("\nArray ordenado em ordem crescente:");
+        for (int num : numeros) {
+            System.out.print(num + " ");
+        }
+        
+        scanner.close();
+    }
+}

@@ -1,20 +1,24 @@
-package Lista3;
+package Lista4;
 
 import java.util.Scanner;
 
 public class Exercicio5 {
-
 	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        int[] numeros = new int[10];
+        int contPar = 0;
 
-        System.out.print("Digite um número: ");
-        int numero = sc.nextInt();
-
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(numero + " x " + i + " = " + (numero * i));
+        System.out.println("Digite 10 números:");
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.print("Número " + (i + 1) + ": ");
+            numeros[i] = scanner.nextInt();
+            
+            if (numeros[i] % 2 == 0) {
+                contPar++;
+            }
         }
 
-        sc.close();
+        System.out.println("\nQuantidade de números pares: " + contPar);
+        scanner.close();
     }
 }

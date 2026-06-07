@@ -1,11 +1,12 @@
-package Lista4;
+package Desafios;
 
 import java.util.Scanner;
 
-public class Exercicio17 {
+public class Desafio4 {
 	public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int[][] matriz = new int[3][3];
+        int somaSecundaria = 0;
 
         System.out.println("Digite os elementos da matriz 3x3:");
         for (int i = 0; i < 3; i++) {
@@ -15,17 +16,12 @@ public class Exercicio17 {
             }
         }
 
-        System.out.print("\nDigite o número multiplicador (escalar): ");
-        int escalar = scanner.nextInt();
-
-        System.out.println("\nMatriz Resultante da Multiplicação:");
+        // Elementos da diagonal secundária: [0][2], [1][1], [2][0]
         for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                matriz[i][j] = matriz[i][j] * escalar;
-                System.out.print(matriz[i][j] + "\t");
-            }
-            System.out.println();
+            somaSecundaria += matriz[i][2 - i];
         }
+
+        System.out.println("\nA soma da diagonal secundária é: " + somaSecundaria);
         scanner.close();
     }
 }

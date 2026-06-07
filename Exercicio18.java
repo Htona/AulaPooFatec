@@ -1,45 +1,39 @@
-package Lista2;
+package Lista4;
 
 import java.util.Scanner;
 
 public class Exercicio18 {
-
 	public static void main(String[] args) {
-		// Menu:
-		// 1 - Somar
-		// 2 - Subtrair
-		// 3 - Sair
-		// O programa deve continuar até sair
+        Scanner scanner = new Scanner(System.in);
+        int[][] matrizA = new int[3][3];
+        int[][] matrizB = new int[3][3];
+        int[][] matrizC = new int[3][3]; // Guardará a soma
 
-		Scanner sc = new Scanner(System.in);
-
-        while (true) {
-            System.out.println("\n1 - Somar");
-            System.out.println("2 - Subtrair");
-            System.out.println("3 - Sair");
-            System.out.print("Escolha: ");
-            int op = sc.nextInt();
-
-            if (op == 3) {
-                System.out.println("Saindo...");
-                break;
-            }
-
-            System.out.print("Digite dois números: ");
-            double a = sc.nextDouble();
-            double b = sc.nextDouble();
-
-            switch (op) {
-                case 1:
-                    System.out.println("Resultado: " + (a + b));
-                    break;
-                case 2:
-                    System.out.println("Resultado: " + (a - b));
-                    break;
-                default:
-                    System.out.println("Opção inválida");
-                    sc.close();
+        System.out.println("Digite os elementos da MATRIZ A (3x3):");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print("A [" + i + "][" + j + "]: ");
+                matrizA[i][j] = scanner.nextInt();
             }
         }
+
+        System.out.println("\nDigite os elementos da MATRIZ B (3x3):");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print("B [" + i + "][" + j + "]: ");
+                matrizB[i][j] = scanner.nextInt();
+            }
+        }
+
+        // Calcula a soma gerando a Matriz C e já exibe o resultado
+        System.out.println("\nMatriz Resultante C (A + B):");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                matrizC[i][j] = matrizA[i][j] + matrizB[i][j];
+                System.out.print(matrizC[i][j] + "\t");
+            }
+            System.out.println();
+        }
+        scanner.close();
     }
 }

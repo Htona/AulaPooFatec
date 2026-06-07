@@ -2,7 +2,7 @@ package Lista4;
 
 import java.util.Scanner;
 
-public class Exercicio17 {
+public class Exercicio16 {
 	public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int[][] matriz = new int[3][3];
@@ -15,14 +15,11 @@ public class Exercicio17 {
             }
         }
 
-        System.out.print("\nDigite o número multiplicador (escalar): ");
-        int escalar = scanner.nextInt();
-
-        System.out.println("\nMatriz Resultante da Multiplicação:");
+        System.out.println("\nMatriz Transposta:");
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                matriz[i][j] = matriz[i][j] * escalar;
-                System.out.print(matriz[i][j] + "\t");
+                // Imprime invertendo os índices i e j para transpor na exibição
+                System.out.print(matriz[j][i] + "\t");
             }
             System.out.println();
         }

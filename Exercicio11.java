@@ -1,24 +1,27 @@
-package Lista3;
+package Lista4;
 
 import java.util.Scanner;
 
 public class Exercicio11 {
-
 	public static void main(String[] args) {
-		
-		 Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        int[][] matriz = new int[3][3];
 
-	        int numero;
+        System.out.println("Digite os elementos da matriz 3x3:");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print("Posição [" + i + "][" + j + "]: ");
+                matriz[i][j] = scanner.nextInt();
+            }
+        }
 
-	        do {
-
-	            System.out.print("Digite um número entre 1 e 10: ");
-	            numero = sc.nextInt();
-
-	        } while (numero < 1 || numero > 10);
-
-	        System.out.println("Número válido!");
-
-	        sc.close();
-	    }
-	}		// TODO Auto-generated method stub
+        System.out.println("\nMatriz digitada:");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(matriz[i][j] + "\t");
+            }
+            System.out.println(); // Quebra de linha ao fim de cada linha da matriz
+        }
+        scanner.close();
+    }
+}
