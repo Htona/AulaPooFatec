@@ -1,27 +1,55 @@
 package Lista4;
 
-import java.util.Scanner;
-
 public class Exercicio13 {
-	public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int[][] matriz = new int[3][3];
-        int somaDiagonal = 0;
+	// Variáveis globais do personagem para controle dos métodos
+    public static String nomePersonagem;
+    public static int vidaAtual;
+    public static int vidaMaxima;
 
-        System.out.println("Digite os elementos da matriz 3x3:");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print("Posição [" + i + "][" + j + "]: ");
-                matriz[i][j] = scanner.nextInt();
-            }
+    public static void main(String[] args) {
+        criarPersonagem("Aragorn", 100);
+        mostrarStatus();
+
+        System.out.println("\n--- Turno 1: Atacando um Monstro ---");
+        atacar();
+
+        System.out.println("\n--- Turno 2: Levando uma emboscada ---");
+        receberDano(35);
+        mostrarStatus();
+
+        System.out.println("\n--- Turno 3: Usando uma Poção de Cura ---");
+        curar(20);
+        mostrarStatus();
+    }
+
+    public static void criarPersonagem(String nome, int vidaMax) {
+        nomePersonagem = nome;
+        vidaMaxima = vidaMax;
+        vidaAtual = vidaMax;
+        System.out.println("Personagem " + nomePersonagem + " criado com sucesso!");
+    }
+
+    public static void mostrarStatus() {
+        System.out.println("[STATUS] " + nomePersonagem + " | HP: " + vidaAtual + "/" + vidaMaxima);
+    }
+
+    public static void atacar() {
+        System.out.println("⚔️ " + nomePersonagem + " desferiu um ataque crítico e causou 25 de dano!");
+    }
+
+    public static void receberDano(int dano) {
+        vidaAtual -= dano;
+        System.out.println("💥 " + nomePersonagem + " sofreu " + dano + " de dano!");
+        if (vidaAtual < 0) {
+            vidaAtual = 0;
         }
+    }
 
-        // Somando os elementos onde i == j
-        for (int i = 0; i < 3; i++) {
-            somaDiagonal += matriz[i][i];
+    public static void curar(int pontosCura) {
+        vidaAtual += pontosCura;
+        if (vidaAtual > vidaMaxima) {
+            vidaAtual = vidaMaxima;
         }
-
-        System.out.println("\nA soma da diagonal principal é: " + somaDiagonal);
-        scanner.close();
+        System.out.println("💚 " + nomePersonagem + " foi curado em " + pontosCura + " pontos de vida.");
     }
 }

@@ -1,35 +1,39 @@
 package Lista4;
 
-import java.util.Scanner;
-
 public class Exercicio7 {
 	public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
-    int[] numeros = new int[10];
-
-    System.out.println("Digite 10 números:");
-    for (int i = 0; i < numeros.length; i++) {
-        System.out.print("Número " + (i + 1) + ": ");
-        numeros[i] = scanner.nextInt();
+        System.out.println("--- TODOS OS NÚMEROS DE 1 A 100 ---");
+        mostrarNumeros();
+        
+        System.out.println("\n\n--- APENAS NÚMEROS PARES DE 1 A 100 ---");
+        mostrarPares();
+        
+        System.out.println("\n\n--- APENAS NÚMEROS ÍMPARES DE 1 A 100 ---");
+        mostrarImpares();
     }
 
-    System.out.print("\nDigite o valor X a ser buscado: ");
-    int x = scanner.nextInt();
-    
-    boolean encontrado = false;
-    for (int i = 0; i < numeros.length; i++) {
-        if (numeros[i] == x) {
-            encontrado = true;
-            break; // Se achou, não precisa continuar procurando
+    // Mostra todos os números de 1 a 100
+    public static void mostrarNumeros() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.print(i + " ");
         }
     }
 
-    if (encontrado) {
-        System.out.println("O valor " + x + " está presente no array.");
-    } else {
-        System.out.println("O valor " + x + " NÃO está presente no array.");
+    // Filtra e mostra apenas os pares de 1 a 100
+    public static void mostrarPares() {
+        for (int i = 1; i <= 100; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+        }
     }
-    
-    scanner.close();
-}
+
+    // Filtra e mostra apenas os ímpares de 1 a 100
+    public static void mostrarImpares() {
+        for (int i = 1; i <= 100; i++) {
+            if (i % 2 != 0) {
+                System.out.print(i + " ");
+            }
+        }
+    }
 }

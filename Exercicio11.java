@@ -1,27 +1,53 @@
 package Lista4;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Exercicio11 {
-	public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int[][] matriz = new int[3][3];
+	public static Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Digite os elementos da matriz 3x3:");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print("Posição [" + i + "][" + j + "]: ");
-                matriz[i][j] = scanner.nextInt();
+    public static void main(String[] args) {
+        int numeroSecreto = sortearNumero();
+        boolean acertou = false;
+
+        System.out.println("=== JOGO DE ADIVINHAÇÃO ===");
+        System.out.println("Tente adivinhar o número sorteado entre 1 e 50!");
+
+        while (!acertou) {
+            int palpite = lerPalpite();
+            acertou = verificarAcerto(palpite, numeroSecreto);
+
+            if (!acertou) {
+                mostrarDica(palpite, numeroSecreto);
             }
         }
 
-        System.out.println("\nMatriz digitada:");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(matriz[i][j] + "\t");
-            }
-            System.out.println(); // Quebra de linha ao fim de cada linha da matriz
+        mostrarVitoria();
+    }
+
+    public static int sortearNumero() {
+        Random random = new Random();
+        return random.nextInt(50) + 1; // Sorteia de 1 a 50
+    }
+
+    public static int lerPalpite() {
+        System.out.print("\nDigite o seu palpite: ");
+        return scanner.nextInt();
+    }
+
+    public static boolean verificarAcerto(int palpite, int numeroSecreto) {
+        return palpite == numeroSecreto;
+    }
+
+    public static void mostrarDica(int palpite, int numeroSecreto) {
+        if (palpite > numeroSecreto) {
+            System.out.println("O número secreto é MENOR do que " + palpite + ".");
+        } else {
+            System.out.println("O número secreto é MAIOR do que " + palpite + ".");
         }
-        scanner.close();
+    }
+
+    public static void mostrarVitoria() {
+        System.out.println("\n🎉 PARABÉNS! Você descobriu o número secreto e venceu o jogo!");
     }
 }

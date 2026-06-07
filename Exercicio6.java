@@ -3,21 +3,30 @@ package Lista4;
 import java.util.Scanner;
 
 public class Exercicio6 {
-	public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int[] numeros = new int[5];
+	public class Exercicio06 {
 
-        System.out.println("Digite 5 números:");
-        for (int i = 0; i < numeros.length; i++) {
-            System.out.print("Número " + (i + 1) + ": ");
-            numeros[i] = scanner.nextInt();
-        }
+	    public static void main(String[] args) {
+	        int numero = lerNumero();
+	        exibirTabuada(numero);
+	    }
 
-        System.out.println("\nArray na ordem inversa:");
-        // O loop começa na última posição (length - 1) e vai até 0
-        for (int i = numeros.length - 1; i >= 0; i--) {
-            System.out.print(numeros[i] + " ");
-        }
-        
-        scanner.close();
-	}}
+	    // Função para ler o número que o usuário deseja ver a tabuada
+	    public static int lerNumero() {
+	        try (Scanner scanner = new Scanner(System.in)) {
+				System.out.print("Deseja ver a tabuada de qual número? ");
+				return scanner.nextInt();
+			}
+	    }
+
+	    // Função com a responsabilidade única de calcular e formatar uma única linha
+	    public static void mostrarLinha(int numero, int i) {
+	        int resultado = numero * i;
+	        System.out.println(numero + " x " + i + " = " + resultado); // Exemplo: 5 x 1 = 5
+	    }
+
+	    // Função que controla o laço de repetição de 1 até 10 para exibir a tabuada completa
+	    public static void exibirTabuada(int numero) {
+	        System.out.println("\n--- Tabuada do " + numero + " ---");
+	        for (int i = 1; i <= 10; i++) {
+	            mostrarLinha(numero, i); // Reaproveita a função de mostrar a linha
+	        }}}}

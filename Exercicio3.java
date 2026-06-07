@@ -3,31 +3,34 @@ package Lista4;
 import java.util.Scanner;
 
 public class Exercicio3 {
-   public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
-    int[] numeros = new int[8];
-
-    System.out.println("Digite 8 números:");
-    for (int i = 0; i < numeros.length; i++) {
-        System.out.print("Número " + (i + 1) + ": ");
-        numeros[i] = scanner.nextInt();
+	public static void main(String[] args) {
+        int numero = lerNumero();
+        
+        // A função ehPar retorna verdadeiro (true) ou falso (false)
+        boolean resultadoValidacao = ehPar(numero);
+        
+        mostrarResultado(numero, resultadoValidacao);
     }
 
-    // Inicializa o maior e o menor com o primeiro elemento do array
-    int maior = numeros[0];
-    int menor = numeros[0];
-
-    for (int i = 1; i < numeros.length; i++) {
-        if (numeros[i] > maior) {
-            maior = numeros[i];
-        }
-        if (numeros[i] < menor) {
-            menor = numeros[i];
-        }
+    // Função responsável por interagir com o usuário e capturar o número
+    public static int lerNumero() {
+        try (Scanner scanner = new Scanner(System.in)) {
+			System.out.print("Digite um número inteiro: ");
+			return scanner.nextInt();
+		}
     }
 
-    System.out.println("\nMaior valor: " + maior);
-    System.out.println("Menor valor: " + menor);
-    scanner.close();
-}
+    // Função puramente lógica: recebe o número e verifica se o resto da divisão por 2 é zero
+    public static boolean ehPar(int num) {
+        return num % 2 == 0;
+    }
+
+    // Função responsável por interpretar o booleano e exibir a mensagem amigável
+    public static void mostrarResultado(int num, boolean par) {
+        if (par) {
+            System.out.println("O número " + num + " é PAR.");
+        } else {
+            System.out.println("O número " + num + " é ÍMPAR.");
+        }
+    }
 }

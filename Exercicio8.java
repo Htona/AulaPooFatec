@@ -4,28 +4,40 @@ import java.util.Scanner;
 
 public class Exercicio8 {
 
-	public class Exercicio08 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int[] numeros = new int[10];
+// Scanner global para ser usado por todas as funções de leitura
+public static Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Digite 10 números:");
-        for (int i = 0; i < numeros.length; i++) {
-            System.out.print("Número " + (i + 1) + ": ");
-            numeros[i] = scanner.nextInt();
-        }
+public static void main(String[] args) {
+    String nome = lerNome();
+    int idade = lerIdade();
+    String cidade = lerCidade();
+    
+    // Exibe os dados agrupados
+    mostrarResumo(nome, idade, cidade);
+}
 
-        System.out.print("\nDigite o valor X para contar as ocorrências: ");
-        int x = scanner.nextInt();
-        
-        int contagem = 0;
-        for (int i = 0; i < numeros.length; i++) {
-            if (numeros[i] == x) {
-                contagem++;
-            }
-        }
+public static String lerNome() {
+    System.out.print("Digite o seu nome: ");
+    return scanner.nextLine();
+}
 
-        System.out.println("O valor " + x + " aparece " + contagem + " vezes no array.");
-        scanner.close();
-    }
-}}
+public static int lerIdade() {
+    System.out.print("Digite a sua idade: ");
+    int idade = scanner.nextInt();
+    scanner.nextLine(); // Limpa o buffer do teclado para a próxima leitura de texto
+    return idade;
+}
+
+public static String lerCidade() {
+    System.out.print("Digite a sua cidade: ");
+    return scanner.nextLine();
+}
+
+public static void mostrarResumo(String nome, int idade, String cidade) {
+    System.out.println("\n=== RESUMO DOS DADOS ===");
+    System.out.println("Nome: " + nome);
+    System.out.println("Idade: " + idade + " anos");
+    System.out.println("Cidade: " + cidade);
+    System.out.println("========================");
+}
+}

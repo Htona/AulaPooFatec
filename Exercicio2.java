@@ -1,22 +1,25 @@
 package Lista4;
 
-import java.util.Scanner;
-
 public class Exercicio2 {
 
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-        int[] numeros = new int[10];
-        int soma = 0;
+		int n1 = 10;
+        int n2 = 20;
+        
+        // Chamamos a função de somar passando os dois números
+        int resultado = somar(n1, n2);
+        
+        // Chamamos a função de exibir o resultado passando o valor calculado
+        mostrarResultado(resultado);
+    }
 
-        System.out.println("Digite 10 números:");
-        for (int i = 0; i < numeros.length; i++) {
-            System.out.print("Número " + (i + 1) + ": ");
-            numeros[i] = scanner.nextInt();
-            soma += numeros[i]; // Vai somando a cada iteração
-        }
+    // Função que recebe dois números inteiros, calcula a soma e retorna o valor
+    public static int somar(int a, int b) {
+        return a + b;
+    }
 
-        System.out.println("\nA soma de todos os elementos é: " + soma);
-        scanner.close();
+    // Função que recebe um valor e apenas o exibe formatado na tela
+    public static void mostrarResultado(int valor) {
+        System.out.println("O resultado da soma é: " + valor);
     }
 }
