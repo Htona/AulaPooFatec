@@ -1,22 +1,27 @@
-package Lista2;
+package Lista3;
 
 import java.util.Scanner;
 
 public class Exercicio10 {
 
-	public static void main(String[] args) {
-		// Se valor >= 100, aplicar 10% de desconto.
-		
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Valor da compra: ");
-		double valor = sc.nextDouble();
-				
-				if (valor >= 100) {
-					valor = valor - (valor * 0.10);
-				}
-		
-		System.out.println("Valor fina: " + valor);
-		sc.close();
-	}
+	public static void main(String[] args){
 
-}
+        Scanner sc = new Scanner(System.in);
+
+        int numero;
+        int soma = 0;
+
+        do {
+
+            System.out.print("Digite um número (0 para sair): ");
+            numero = sc.nextInt();
+
+            soma += numero;
+
+        } while (numero != 0);
+
+        System.out.println("Soma total = " + soma);
+
+        sc.close();
+    }
+	}

@@ -1,30 +1,41 @@
-package Lista2;
+package Lista3;
 
 import java.util.Scanner;
+  public class Exercicio12 {
+	  public static void main(String[] args) {
+	
+	Scanner sc = new Scanner(System.in);
 
-public class Exercicio12 {
+    int opcao;
+    do {
 
-	public static void main(String[] args) {
-		// Leia um número de 1 a 7
-		// Mostre o dia da semana correspondente
-		// Caso inválido: mostrar erro
+        System.out.println("\n1 - Somar");
+        System.out.println("2 - Subtrair");
+        System.out.println("3 - Sair");
+        System.out.print("Escolha: ");
 
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Digite um número (1-7):");
-		int dia = sc.nextInt();
-		
-		switch(dia) {
-		case 1: System.out.println("Domindo"); break;
-		case 2: System.out.println("Segunda"); break;
-		case 3: System.out.println("Terça"); break;
-		case 4: System.out.println("Quarta"); break;
-		case 5: System.out.println("Quinta"); break;
-		case 6: System.out.println("Sexta"); break;
-		case 7: System.out.println("Sábado"); break;
-		default: System.out.println("Número inválido");
-		
-		sc.close();
-		}
-	}
+        opcao = sc.nextInt();
+
+        switch (opcao) {
+
+            case 1:
+                System.out.println("Opção Somar selecionada.");
+                break;
+
+            case 2:
+                System.out.println("Opção Subtrair selecionada.");
+                break;
+
+            case 3:
+                System.out.println("Encerrando...");
+                break;
+
+            default:
+                System.out.println("Opção inválida.");
+        }
+
+    } while (opcao != 3);
+
+    sc.close();
+}
 }
